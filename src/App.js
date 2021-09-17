@@ -1,4 +1,4 @@
-
+import React,{useState} from 'react' ;
 import logo from './logo.svg';
 import './App.css';
 
@@ -20,6 +20,7 @@ function App() {
       <header className="App-header">
        <div >
          <h1>My first react !!!</h1>
+         <Incring> </Incring>
          <ul>
            {student.map(name => <li>{name}</li>)}
          </ul>
@@ -77,5 +78,30 @@ function Prody(pro){
     </div>
   )
 }
+function Incring(){
+ const [count ,setCount]= useState(0);
+ const addPro = () =>setCount(count+1);
+ const stylebutton ={
+   padding:'5px',
+   width:'150px',
+   fontSize:'20px',
+   color:'#000080',
+   borderRadius:'10px'
+ }
+  return (
+    <div>
+      <button onClick={addPro} style={stylebutton}> Add product</button>
+      <h2 >product add: {count}</h2>
+      <Extradd count={count+5}></Extradd>
+    </div>
+  )
+}
 
+function Extradd(popes){
+  return (
+    <div>
+      <h3>softor total: {popes.count} </h3>
+    </div>
+  )
+}
 export default App;
